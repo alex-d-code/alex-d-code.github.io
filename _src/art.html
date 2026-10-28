@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Source of the generated images; render-images.sh screenshots it.
+     art.html?og=en|ru|uk|ro   → 1200×630 link preview, in the style of the site
+     art.html?icon=1           → square icon (apple-touch-icon, favicon.png)
+     The words repeat role and status from content/home.<lang>.mjs; keep them in step. -->
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: #fdfdfb; color: #1d1d1b; overflow: hidden; -webkit-font-smoothing: antialiased; }
+  .og { width: 1200px; height: 630px; box-sizing: border-box; padding: 88px 96px; position: relative; }
+  .og__me { display: flex; align-items: center; gap: 36px; }
+  .og__me img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+  .og__handle { margin: 0; font: 600 76px/1.05 Literata, Georgia, serif; letter-spacing: -1px; }
+  .og__role { margin: 14px 0 0; font: 400 28px/1.35 Inter, sans-serif; color: #6c6c66; }
+  .og__facts { margin: 52px 0 0; max-width: 1000px; font: 400 33px/1.5 Literata, Georgia, serif; }
+  .og__foot { position: absolute; left: 96px; right: 96px; bottom: 64px; padding-top: 22px; border-top: 2px solid #e7e7e2;
+              display: flex; justify-content: space-between; font: 400 24px/1 Inter, sans-serif; color: #6c6c66; }
+  .og__foot .ok::before { content: ''; display: inline-block; width: 12px; height: 12px; margin: 0 12px 2px 0; border-radius: 50%; background: #16a34a; }
+  .icon { width: 100vw; height: 100vh; background: #15171c; display: grid; place-items: center; }
+  .icon svg { width: 72%; height: 72%; }
+</style>
+</head>
+<body>
+<script>
+const q = new URLSearchParams(location.search);
+const T = {
+  en: {
+    role: 'Developer of IDE plugins, AI features and mobile apps',
+    facts: '19 years in software · 1.5M+ installs of IDE plugins I’ve worked on · 5 apps of my own in the App&nbsp;Store',
+    status: 'Open to new projects',
+  },
+  ru: {
+    role: 'Разработчик плагинов для IDE, AI-функций и мобильных приложений',
+    facts: '19 лет в разработке · 1,5 млн+ установок IDE-плагинов, над которыми я работал · 5 своих приложений в App&nbsp;Store',
+    status: 'Открыт к новым проектам',
+  },
+  uk: {
+    role: 'Розробник плагінів для IDE, AI-функцій і мобільних застосунків',
+    facts: '19 років у розробці · 1,5 млн+ встановлень IDE-плагінів, над якими я працював · 5 власних застосунків в App&nbsp;Store',
+    status: 'Відкритий до нових проєктів',
+  },
+  ro: {
+    role: 'Dezvoltator de pluginuri IDE, funcții AI și aplicații mobile',
+    facts: '19 ani în dezvoltare software · peste 1,5 milioane de instalări ale pluginurilor IDE la care am lucrat · 5 aplicații proprii în App&nbsp;Store',
+    status: 'Disponibil pentru proiecte noi',
+  },
+};
+if (q.get('og')) {
+  const t = T[q.get('og')];
+  document.body.innerHTML = `<div class="og">
+    <div class="og__me"><img src="../assets/img/photo.webp" alt="">
+      <div><p class="og__handle">@alex.d.code</p><p class="og__role">${t.role}</p></div></div>
+    <p class="og__facts">${t.facts}</p>
+    <div class="og__foot"><span class="ok">${t.status}</span><span>alex-d-code.github.io</span></div>
+  </div>`;
+} else {
+  document.body.innerHTML = `<div class="icon"><svg viewBox="4 6 24 20"><path d="M6.5 23 11.5 9l5 14M8.4 18h6.2" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="18.5" y="21" width="7.5" height="2.6" rx="1.3" fill="#8f8dff"/></svg></div>`;
+}
+</script>
+</body>
+</html>
